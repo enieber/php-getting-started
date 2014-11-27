@@ -10,6 +10,11 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
   'monolog.logfile' => 'php://stderr',
 ));
 
+// Register the Twig templating engine
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+  'twig.path' => __DIR__.'/../views',
+));
+
 // Our web handlers
 
 $app->get('/', function() use($app) {
